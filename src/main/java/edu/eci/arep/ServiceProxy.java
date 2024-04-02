@@ -19,7 +19,7 @@ public class ServiceProxy {
     public static void main(String[] args) {
         staticFiles.location("/public");
         port(getPort());
-        //math_services = System.getenv("MATH_SERVICES").split(";");
+        math_services = System.getenv("MATH_SERVICES").split(";");
         get("/factors", (req, res) -> {
             res.type("application/json");
             String output = invoker(math_services[instance] + "/factors?value=" + req.queryParams("value").replace(" ", "%20"));
@@ -47,6 +47,7 @@ public class ServiceProxy {
     }
 
     private static String invoker(String url) throws IOException {
+        System.out.println(url);
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");

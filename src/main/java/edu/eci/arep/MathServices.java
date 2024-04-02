@@ -16,12 +16,14 @@ public class MathServices {
         get("/factors", (req, res) -> {
             res.type("application/json");
             int value = Integer.parseInt(req.queryParams("value"));
+            System.out.println("factors: " + value);
             ArrayList<Integer> output = factors(value);
             return jsonResponse("factors", value, output == null ? ERROR : arrayListToString(output));
         });
         get("/primes", (req, res) -> {
             res.type("application/json");
             int value = Integer.parseInt(req.queryParams("value"));
+            System.out.println("primes: " + value);
             ArrayList<Integer> output = primes(value);
             return jsonResponse("primes", value, output == null ? ERROR : arrayListToString(output));
         });
