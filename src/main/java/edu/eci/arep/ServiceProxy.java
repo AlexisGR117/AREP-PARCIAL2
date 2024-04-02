@@ -12,14 +12,14 @@ import static spark.Spark.*;
 
 public class ServiceProxy {
 
-    private static String[] math_services = new String[]{"http://localhost:4567"};
+    private static String[] math_services;
     private static final String USER_AGENT = "Mozilla/5.0";
     private static int instance = 0;
 
     public static void main(String[] args) {
         staticFiles.location("/public");
         port(getPort());
-        math_services = System.getenv("MATH_SERVICES").split(";");
+        math_services = System.getenv("MATH_SERVICES").split(",");
         get("/factors", (req, res) -> {
             res.type("application/json");
             String output = invoker(math_services[instance] + "/factors?value=" + req.queryParams("value").replace(" ", "%20"));
