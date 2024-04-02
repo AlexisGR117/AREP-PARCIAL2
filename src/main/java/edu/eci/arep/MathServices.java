@@ -36,7 +36,7 @@ public class MathServices {
         return 4567;
     }
 
-    private static String jsonResponse(String operation, int input, String output) {
+    public static String jsonResponse(String operation, int input, String output) {
         return "{" +
                 " \"operation\": \"" + operation + "\"," +
                 " \"input\": " + input + "," +
@@ -44,7 +44,7 @@ public class MathServices {
                 "}";
     }
 
-    private static ArrayList<Integer> primes(int value) {
+    public static ArrayList<Integer> primes(int value) {
         if (value <= 1) return null;
         ArrayList<Integer> primes = new ArrayList<>();
         for (int i = 2; i <= value; i++) {
@@ -53,7 +53,7 @@ public class MathServices {
         return primes;
     }
 
-    private static ArrayList<Integer>  factors(int value) {
+    public static ArrayList<Integer>  factors(int value) {
         if (value <= 0) return null;
         ArrayList<Integer> factors = new ArrayList<>();
         factors.add(1);
@@ -63,7 +63,7 @@ public class MathServices {
         return factors;
     }
 
-    private static String arrayListToString(ArrayList<Integer> array) {
+    public static String arrayListToString(ArrayList<Integer> array) {
         StringBuilder stringArray = new StringBuilder();
         for (int number: array) {
             stringArray.append(number).append(", ");
