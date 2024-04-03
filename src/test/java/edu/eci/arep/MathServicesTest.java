@@ -1,6 +1,5 @@
-package arep;
+package edu.eci.arep;
 
-import edu.eci.arep.MathServices;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
